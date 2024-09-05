@@ -7,7 +7,7 @@ export interface UserSchema {
   login: Login;
   password: string;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt?: Date | null;
 }
 
 export class User {
@@ -54,7 +54,8 @@ export class User {
     return this.props.createdAt;
   }
 
-  get updatedAt(): Date | undefined {
+  get updatedAt(): Date | null {
+    if (!this.props.updatedAt) return null;
     return this.props.updatedAt;
   }
 }

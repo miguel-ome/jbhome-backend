@@ -1,4 +1,5 @@
 import { UserRepository } from '@app/repository/user.repository';
+import { Injectable } from '@nestjs/common';
 
 interface DeleteUserUseCaseRequest {
   id: string;
@@ -6,6 +7,7 @@ interface DeleteUserUseCaseRequest {
 
 type DeleteUserUseCaseResponse = Promise<void>;
 
+@Injectable()
 export class DeleteUserUseCase {
   constructor(private readonly userRepository: UserRepository) {}
 
