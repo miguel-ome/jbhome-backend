@@ -2,7 +2,7 @@ import { Replace } from '@app/helpers/relpace';
 import { randomUUID } from 'crypto';
 import { Login } from '../login/login';
 
-interface UserSchema {
+export interface UserSchema {
   name: string;
   login: Login;
   password: string;
