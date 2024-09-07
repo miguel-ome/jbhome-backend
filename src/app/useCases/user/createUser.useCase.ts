@@ -1,5 +1,6 @@
 import { Login } from '@app/entities/login/login';
 import { User } from '@app/entities/user/user';
+import { JWTAuth } from '@app/middlewares/auth.middleware';
 import { UserRepository } from '@app/repository/user.repository';
 import { Injectable } from '@nestjs/common';
 import { hash } from 'bcrypt';
@@ -12,6 +13,7 @@ interface CreateUserUseCaseRequest {
 
 interface CreateUserUseCaseResponse {
   user: User;
+  access_token: string;
 }
 
 @Injectable()
@@ -28,10 +30,18 @@ export class CreateUserUseCase {
       name,
       password: await hash(password, 10),
     });
+
+    const payload = {
+      sub: user.id,
+    };
+
+    const access_token = JWTAuth.sign({ payload });
+
     await this.userRepository.create(user);
 
     return {
       user,
+      access_token,
     };
   }
 }

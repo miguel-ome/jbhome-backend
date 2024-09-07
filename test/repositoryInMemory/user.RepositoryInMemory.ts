@@ -19,4 +19,12 @@ export class UserRepositoryInMemory implements UserRepository {
     if (!user) throw new Error('User is not found');
     return user;
   }
+
+  async findUserByLogin(login: string): Promise<User | null> {
+    const user = this.users.find((use) => use?.login === login);
+
+    if (!user) return null;
+
+    return user;
+  }
 }

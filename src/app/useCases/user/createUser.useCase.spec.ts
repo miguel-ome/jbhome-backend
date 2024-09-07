@@ -6,10 +6,16 @@ describe('Create User', () => {
     const userRepositoryInMemory = new UserRepositoryInMemory();
     const createUserUseCase = new CreateUserUseCase(userRepositoryInMemory);
 
-    const { user } = await createUserUseCase.execute({
+    const createUserDTO = {
       login: 'miguel_OMEE',
       name: 'Eliseu Miguel',
       password: 'passwordTest',
+    };
+
+    const { user } = await createUserUseCase.execute({
+      login: createUserDTO.login,
+      name: createUserDTO.name,
+      password: createUserDTO.password,
     });
 
     expect(userRepositoryInMemory.users.length).toBe(1);
