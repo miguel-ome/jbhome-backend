@@ -4,14 +4,14 @@ import { randomUUID } from 'crypto';
 interface CategorySchema {
   name: string;
   createdAt: Date;
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 }
 
 export class Category {
-  _id: string;
-  props: CategorySchema;
+  private _id: string;
+  private props: CategorySchema;
 
-  validateName(name: string): boolean {
+  private validateName(name: string): boolean {
     return name.length <= 1 ? false : true;
   }
 
@@ -38,6 +38,18 @@ export class Category {
 
   public set name(value: string) {
     this.props.name = value;
+  }
+
+  get createdAt(): Date {
+    return this.props.createdAt;
+  }
+
+  get updatedAt(): Date | null {
+    if (!this.props.updatedAt) return null;
+    return this.props.updatedAt;
+  }
+
+  private update(): void {
     this.props.updatedAt = new Date();
   }
 }

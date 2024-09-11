@@ -1,4 +1,4 @@
-import { UserRepositoryInMemory } from '@test/repositoryInMemory/user.RepositoryInMemory';
+import { UserRepositoryInMemory } from '@test/repositoryInMemory/user.repositoryInMemory';
 import { DeleteUserUseCase } from './deleteUser.useCase';
 import { userFactory } from '@test/factory/user/makeUser.factory';
 import { addUserInRepositoryMemory } from '@test/factory/user/addUserInRepositoryInMemory';

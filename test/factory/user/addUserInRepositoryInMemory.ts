@@ -1,5 +1,5 @@
 import { User } from '@app/entities/user/user';
-import { UserRepositoryInMemory } from '@test/repositoryInMemory/user.RepositoryInMemory';
+import { UserRepositoryInMemory } from '@test/repositoryInMemory/user.repositoryInMemory';
 import { userFactory } from './makeUser.factory';
 
 interface AddUserInRepositoryMemoryProps {

@@ -1,4 +1,4 @@
-import { UserRepositoryInMemory } from '@test/repositoryInMemory/user.RepositoryInMemory';
+import { UserRepositoryInMemory } from '@test/repositoryInMemory/user.repositoryInMemory';
 import { AuthUserUseCase } from './authUser.useCase';
 import { userFactory } from '@test/factory/user/makeUser.factory';
 import { CreateUserUseCase } from './createUser.useCase';
