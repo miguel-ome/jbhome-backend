@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common';
 import { NextFunction, Request } from 'express';
 import { verify } from 'jsonwebtoken';
+import { env } from 'process';
 
 @Injectable()
 export class JwtMiddleware implements NestMiddleware {
@@ -15,11 +16,11 @@ export class JwtMiddleware implements NestMiddleware {
     }
 
     try {
-      const decoded = verify(token, 'teste_key_secret');
+      const decoded = verify(token, env.SECRET_KEY_JWT as string);
       req.body.user = decoded;
       next();
     } catch {
-      throw new UnauthorizedException('Invelid or expired token');
+      throw new UnauthorizedException('Invalid or expired token');
     }
   }
 }

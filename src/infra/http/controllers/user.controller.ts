@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Headers,
-  Param,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CreateUserDTO } from '../dto/createUser.dto';
 import { CreateUserUseCase } from '@app/useCases/user/createUser.useCase';
 import { FindUserByIdUseCase } from '@app/useCases/user/findUserById.useCase';
@@ -24,6 +16,7 @@ export class UserController {
     private authUserUseCase: AuthUserUseCase,
   ) {}
 
+  // Not use Middleware JWT
   @Post()
   async create(@Body() body: CreateUserDTO) {
     const { login, name, password } = body;
@@ -43,6 +36,7 @@ export class UserController {
     };
   }
 
+  // Not use Middleware JWT
   @Post('/signIn')
   async signIn(@Body() body: SignInDTO) {
     const { login, password } = body;
@@ -60,13 +54,6 @@ export class UserController {
           accessToken,
         },
       },
-    };
-  }
-
-  @Get('/login')
-  async login(@Body('authorization') authHeader: string) {
-    return {
-      auth: authHeader,
     };
   }
 

@@ -3,7 +3,7 @@ import { NotFoundUser } from '../errors/user/NotFoundUser';
 import { compare } from 'bcrypt';
 import { IncorrectPassword } from '../errors/user/IncorrectPassword';
 import { Injectable } from '@nestjs/common';
-import { JWTAuth } from '@app/middlewares/auth.middleware';
+import { AuthJWT } from '@app/entities/auth/authJWT';
 
 interface AuthUserUserCaseRequest {
   login: string;
@@ -34,7 +34,7 @@ export class AuthUserUseCase {
       sub: user.id,
     };
 
-    const accessToken = JWTAuth.sign({ payload });
+    const accessToken = AuthJWT.sign({ payload });
 
     return {
       accessToken,
