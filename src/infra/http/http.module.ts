@@ -8,6 +8,7 @@ import { AuthUserUseCase } from '@app/useCases/user/authUser.useCase';
 import { CategoryController } from './controllers/category.controller';
 import { CreateCategoryUseCase } from '@app/useCases/category/createCategory.useCase';
 import { UpdateCategoryUseCase } from '@app/useCases/category/updateCategory.useCase';
+import { DeleteCategoryUseCase } from '@app/useCases/category/deleteCategory.useCase';
 
 @Module({
   imports: [DatabaseModule],
@@ -19,6 +20,7 @@ import { UpdateCategoryUseCase } from '@app/useCases/category/updateCategory.use
     AuthUserUseCase,
     CreateCategoryUseCase,
     UpdateCategoryUseCase,
+    DeleteCategoryUseCase,
   ],
 })
 export class HttpModule {}

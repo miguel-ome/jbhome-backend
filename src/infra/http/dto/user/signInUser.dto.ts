@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class SignInDTO {
+export class SignInUserDTO {
   @IsNotEmpty({ message: 'Login ou senha inválida' })
   login: string;
 
