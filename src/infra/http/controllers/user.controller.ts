@@ -20,7 +20,7 @@ export class UserController {
   @Post()
   async create(@Body() body: CreateUserDTO) {
     const { login, name, password } = body;
-    const { access_token, user } = await this.createUserUseCase.execute({
+    const { accessToken, user } = await this.createUserUseCase.execute({
       login,
       name,
       password,
@@ -31,7 +31,7 @@ export class UserController {
       body: {
         message: 'Usuário criado com sucesso',
         data: UserViewModel.toHttp(user),
-        access_token,
+        accessToken,
       },
     };
   }

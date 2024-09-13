@@ -4,7 +4,7 @@ import { randomUUID } from 'crypto';
 export interface CategorySchema {
   name: string;
   createdAt: Date;
-  updatedAt?: Date | undefined;
+  updatedAt?: Date | null;
 }
 
 export class Category {
