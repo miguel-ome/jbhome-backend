@@ -21,6 +21,9 @@ describe('Update Category', () => {
       name: 'lençol',
     });
 
-    console.log(categoryRepositoryInMemory.categories);
+    expect(categoryRepositoryInMemory.categories[0].name).toBe('lençol');
+    expect(categoryRepositoryInMemory.categories[0].updatedAt).toEqual(
+      expect.any(Date),
+    );
   });
 });

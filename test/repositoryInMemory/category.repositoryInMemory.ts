@@ -27,4 +27,10 @@ export class CategoryRepositoryInMemory implements CategoryRepository {
 
     return isCategory;
   }
+
+  async delete(id: string): Promise<void> {
+    const indexUser = await this.categories.findIndex((user) => user.id === id);
+    if (indexUser < 0) throw new Error('User not found');
+    this.categories.splice(indexUser, 1);
+  }
 }

@@ -2,6 +2,10 @@ import { UserRepositoryInMemory } from '@test/repositoryInMemory/user.repository
 import { CreateUserUseCase } from './createUser.useCase';
 
 describe('Create User', () => {
+  beforeAll(() => {
+    process.env.SECRET_KEY_JWT = 'sua_chave_secreta';
+  });
+
   it('Should be able to create the user in repository', async () => {
     const userRepositoryInMemory = new UserRepositoryInMemory();
     const createUserUseCase = new CreateUserUseCase(userRepositoryInMemory);

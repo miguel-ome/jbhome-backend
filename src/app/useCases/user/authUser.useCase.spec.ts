@@ -4,6 +4,10 @@ import { userFactory } from '@test/factory/user/makeUser.factory';
 import { CreateUserUseCase } from './createUser.useCase';
 
 describe('Auth User', () => {
+  beforeAll(() => {
+    process.env.SECRET_KEY_JWT = 'sua_chave_secreta';
+  });
+
   it('Should be able to make login and recive an access token', async () => {
     const userRepositoryInMemory = new UserRepositoryInMemory();
     const authUserUseCase = new AuthUserUseCase(userRepositoryInMemory);

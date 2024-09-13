@@ -1,7 +1,7 @@
 import { Replace } from '@app/helpers/relpace';
 import { randomUUID } from 'crypto';
 
-interface CategorySchema {
+export interface CategorySchema {
   name: string;
   createdAt: Date;
   updatedAt?: Date | undefined;
@@ -38,6 +38,7 @@ export class Category {
 
   public set name(value: string) {
     this.props.name = value;
+    this.update();
   }
 
   get createdAt(): Date {

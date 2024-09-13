@@ -13,7 +13,7 @@ interface CreateUserUseCaseRequest {
 
 interface CreateUserUseCaseResponse {
   user: User;
-  access_token: string;
+  accessToken: string;
 }
 
 @Injectable()
@@ -35,13 +35,13 @@ export class CreateUserUseCase {
       sub: user.id,
     };
 
-    const access_token = AuthJWT.sign({ payload });
+    const accessToken = AuthJWT.sign({ payload });
 
     await this.userRepository.create(user);
 
     return {
       user,
-      access_token,
+      accessToken,
     };
   }
 }

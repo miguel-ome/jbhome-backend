@@ -23,7 +23,7 @@ export class UpdateCategoryUseCase {
 
     if (!category) throw new NotFoundCategory();
 
-    category.name(name);
+    category.name = name;
 
     await this.categoryRepository.save(category);
     return {

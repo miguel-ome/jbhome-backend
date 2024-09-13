@@ -16,7 +16,7 @@ export class JwtMiddleware implements NestMiddleware {
     }
 
     try {
-      const decoded = verify(token, env.SECRET_KEY_JWT as string);
+      const decoded = verify(token, env.SECRET_KEY_JWT);
       req.body.user = decoded;
       next();
     } catch {
