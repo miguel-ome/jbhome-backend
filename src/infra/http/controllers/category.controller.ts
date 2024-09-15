@@ -1,5 +1,5 @@
 import { CreateCategoryUseCase } from '@app/useCases/category/createCategory.useCase';
-import { Body, Controller, Delete, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
 import { CreateCategoryDTO } from '../dto/category/createCategory';
 import { UpdateCategoryUseCase } from '@app/useCases/category/updateCategory.useCase';
 import { UpdateCategoryDTO } from '../dto/category/updateCategory';
@@ -50,6 +50,13 @@ export class CategoryController {
       body: {
         message: 'Categoria removida com sucesso',
       },
+    };
+  }
+
+  @Get()
+  helloWorld() {
+    return {
+      message: 'Hellor World',
     };
   }
 }
