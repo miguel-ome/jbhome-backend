@@ -11,9 +11,5 @@
       "src": "/(.*)",
       "dest": "src/main.ts"
     }
-  ],
-  "scripts": {
-    "build": "tsc",
-    "start": "node dist/main.js"
-  }
+  ]
 }
