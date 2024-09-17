@@ -1,4 +1,15 @@
 {
+  "outputDirectory": "build",
+  "env": [
+    {
+      "MY_KEY": "SECRET_KEY_JWT",
+      "SECRET": "UG87tceMzM*_T.Q"
+    },
+    {
+      "MY_KEY": "DATABASE_URL=postgresql",
+      "SECRET": "//postgres.jxdouilatdrxfjynmbwy:UG87tceMzM*_T.Q@aws-0-sa-east-1.pooler.supabase.com:5432/postgres?pgbouncer=true&connection_limit=1"
+    }
+  ],
   "version": 2,
   "builds": [
     {
